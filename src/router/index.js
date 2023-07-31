@@ -6,6 +6,7 @@ import Services from '../pages/Services.vue';
 import Category from '../pages/Category.vue';
 import Spare from '../pages/Spare.vue';
 import Cart from '../pages/Cart.vue';
+import Reviews from '../pages/Reviews.vue';
 
 export default createRouter ({
     history: createWebHistory(),
@@ -57,6 +58,11 @@ export default createRouter ({
                     path: 'cart',
                     name: 'Cart',
                     component: Cart
+                },
+                {
+                    path: 'reviews',
+                    name: 'Reviews',
+                    component: Reviews
                 },
             ]
         },

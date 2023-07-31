@@ -56,7 +56,7 @@ button:focus-visible {
 
 #app {
   max-width: 1500px;
-  margin: 0 auto;
+  width: 100%;
   /* text-align: center; */
 }
 
@@ -81,9 +81,17 @@ button:focus-visible {
 }
 
 .header {
+ 
+   
+}
+
+.inner {
   display: flex;
-  width: 100%;
+  
+  align-items: center;
   border-bottom: 1px solid grey;
+  padding: 15px 10px;
+  margin: 0 auto;
 }
 
 .icon {
@@ -92,6 +100,17 @@ button:focus-visible {
 
 .icon-name-company {
   display: flex;
+}
+
+.company {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name-company {
+  font-size: 32px;
+  font-weight: bold;
 }
 
 .search {
@@ -176,6 +195,7 @@ button:focus-visible {
   line-height: 15px;
   white-space: normal !important;
   text-align: start;
+  border-bottom: 1px solid #f4f4f4;
 }
 
 .el-menu--horizontal>.el-menu-item.is-active.el-menu-item:not(.is-disabled):hover  {
@@ -272,4 +292,46 @@ button:focus-visible {
 .spare-image-cart {
   width: 65px;
   height: 48px;
+}
+
+.review {
+  margin-top: 30px;
+  background-color: #fff;
+  display: flex;
+  width: 260px;
+  
+}
+
+.review-container {
+  background-color: #fff;
+  height: 100%;
+}
+
+.review-name {
+  padding: 19px 5px 25px 19px;
+  border-bottom: 1px solid #f4f4f4;
+  font-size: 24px;
+}
+
+.review-content {
+  padding: 10px;
+  background-color: #fff;
+  word-break: break-word;
+  line-height: 17px;
+  text-align: start;
+}
+
+.reviews {
+  background-color: #fff;
+  margin-left: 40px;
+}
+
+.review-client {
+padding: 10px;
+}
+
+.name-client {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #333;
 }

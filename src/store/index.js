@@ -7,7 +7,6 @@ const store = createStore({
         return {
            cartSpares: [],
             spare: {
-                
             },
         }
     },
@@ -16,24 +15,31 @@ const store = createStore({
         state.cartSpares.push(spareId);
         },
         removeSpareIdFromCart(state, spareId) {
-            const spareIndex = cartSpares.indexOf(spareId);
+            const spareIndex = state.cartSpares.findIndex(item => item.id === spareId);
             if(spareIndex > -1) {
                 state.cartSpares.splice(spareIndex, 1);
             }
-           
+        },
+        addQuantitySpare(state, spareId) {
+            console.log(state.spare.quantity);
+            const needSpare = state.cartSpares.find(item => item.id === spareId);
+            
         }
     },
     actions: {
-        
-       addSpareIdToCart({ commit }, spareId) {
-        console.log(spareId);
-        commit('addSpareIdToCart', spareId);
-
+        addSpareIdToCart({ commit }, spareId) {
+            commit('addSpareIdToCart', spareId);
+       },
+       removeSpareIdFromCart({ commit}, spareId) {
+            commit('removeSpareIdFromCart', spareId)
        }
     },
     getters: {
         cartSpares(state) {
             return state.cartSpares;
+        },
+        spare(state) {
+            return state.spare;
         }
     }
 })
