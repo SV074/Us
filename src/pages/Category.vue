@@ -52,7 +52,6 @@ export default {
                 }
             })
                 .then(({ data }) => {
-                    
                     this.spares = data;
                 })
                 .catch(({response}) => {
@@ -78,8 +77,6 @@ export default {
     },
     mounted() {
         this.getCategorySpares();
-       
-        
     },
     created() {
        

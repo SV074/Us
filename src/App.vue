@@ -11,12 +11,14 @@
         </div>
       </div>
       <div class="search">
-        <el-input size="large" style="width: 315px" placeholder="Поиск по сайту">
+        <el-input size="large" style="width: 315px" placeholder="Поиск по сайту" v-model="input">
           <template #suffix>
-            <el-icon class="el-input__icon">
+            <router-link to="/search">
+              <el-icon class="el-input__icon">
               <search />
             </el-icon>
-          </template>
+            </router-link>
+            </template>
         </el-input>
       </div>
       <div class="contacts-managers-mail">
@@ -31,10 +33,14 @@
       </div>
       <div class="cart" style="margin-left: 20px;">
         <div>
-          <h1><el-badge :value="`${Array.from(new Set(this.$store.state.cartSpares)).length}`"><router-link
-                to="/cart"><el-icon class="icon-cart" style="width: 40px;height: 35px;">
-                  <ShoppingCart />
-                </el-icon></router-link></el-badge></h1>
+          <h1>
+            <el-badge :value="`${Array.from(new Set(this.$store.state.cartSpares)).length}`">
+                <router-link to="/cart"><el-icon class="icon-cart" style="width: 40px;height: 35px;">
+                      <ShoppingCart/>
+                    </el-icon>
+                  </router-link>
+                </el-badge>
+                  </h1>
         </div>
       </div>
     </div>
@@ -86,10 +92,10 @@
           <div class="review-container">
             <div class="review-name">Отзывы</div>
             <el-row class="review-content">
-              <div>
+              <div class="name-client">
                 Павел Олегович
               </div>
-              <div>
+              <div class="text-review">
                 Компания ООО «ТК«УралСбыт» в рамках государственного контракта выполняла работы по закупу зап.частей к а/м
                 «Урал».
                 Работы были выполнены в полной мере в заранее оговоренные сроки, а также в полном соответствии с условиями
@@ -124,7 +130,7 @@ export default {
     return {
       image: imageLogo,
       categories: [],
-
+      input: '',
     }
   },
   computed: {
@@ -145,7 +151,10 @@ export default {
         })
         .finally(function () {
         });
-    }
+    },
+    goToSearchSpare() {
+      console.log(this.input);
+    },
   },
   mounted() {
     this.getCategories();
@@ -154,3 +163,9 @@ export default {
 
 
 </script>
+
+<style>
+
+
+
+</style>

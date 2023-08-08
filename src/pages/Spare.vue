@@ -50,6 +50,8 @@ export default{
         },
         buySpare(itemId) {
             this.addSpareIdToCart(itemId);
+            
+            console.log(localStorage.length);
         }
     },
     created() {

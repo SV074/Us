@@ -149,7 +149,6 @@ button:focus-visible {
 .horizontal-menu {
   font-weight: 600 !important;
   font-size: 19px !important;
-    /* outline: none !important; */
 }
 
 .vertical-menu {
@@ -251,7 +250,6 @@ button:focus-visible {
 
 .spare-image-catalog {
   padding: 20px 10px;
-  
 }
 
 .spare-info-catalog {
@@ -324,10 +322,6 @@ button:focus-visible {
 .reviews {
   background-color: #fff;
   margin-left: 40px;
-}
-
-.review-client {
-padding: 10px;
 }
 
 .name-client {
