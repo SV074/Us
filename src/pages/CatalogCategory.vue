@@ -23,9 +23,9 @@ export default {
         }
     },
     methods: {
-        // ...mapActions([
+        ...mapActions([
            
-        // ]),
+        ]),
         getCategories() {
             axios.get('http://localhost/sparesurals/categories')
                 .then(({ data }) => {

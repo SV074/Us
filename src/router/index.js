@@ -8,12 +8,17 @@ import Spare from '../pages/Spare.vue';
 import Cart from '../pages/Cart.vue';
 import Reviews from '../pages/Reviews.vue';
 import Search from '../pages/Search.vue';
+import Admin from '../pages/Admin.vue';
+import Web from '../layout/Web.vue';
+import CategoryAdmin from '../pages/CategoryAdmin.vue';
+import SpareAdmin from '../pages/SpareAdmin.vue';
 
 export default createRouter ({
     history: createWebHistory(),
     routes: [
         { 
             path: '/',
+            component: Web ,
             children: [
                 {
                     path: '',
@@ -70,9 +75,28 @@ export default createRouter ({
                     name: 'Search',
                     component: Search
                 },
+                
             ]
         },
-       
+        {
+            path: '/admin',
+            component: Admin,
+            children: [
+                    {
+                    path: '/admin/category',
+                    name: 'CategoryAdmin',
+                    component: CategoryAdmin
+                    },
+                    {
+                        path: '/admin/spares',
+                        name: 'SpareAdmin',
+                        component: SpareAdmin
+                        },
+                    
+                
+               
+            ]
+        },
     ]
     
 })

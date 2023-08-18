@@ -6,6 +6,7 @@ const store = createStore({
     state() {
         return {
            cartSpares: [],
+           categoriesSpares: [],
         }
     },
     mutations: {
