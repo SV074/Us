@@ -1,7 +1,8 @@
 <template>
     <div class="cart-container" style="padding-left: 50px;">
         <div class="cart">
-            <el-table :data="cartSparesItems" border style="width: 800px;" show-summary sum-text="Сумма">
+            <el-table :data="cartSparesItems" border style="width: 800px;" show-summary sum-text="Сумма"
+                :summary-method="getSum">
                 <el-table-column label="Фото" width="100" align="center">
                     <template #default="scope">
                         <el-image class="spare-image-cart" :src="scope.row.url" />
@@ -20,9 +21,9 @@
                             </el-icon></el-button>
                     </template>
                 </el-table-column>
-                <el-table-column prop="price" label="Сумма" width="80" align="center">
+                <el-table-column prop="sum" label="Сумма" width="80" align="center">
                     <template #default="scope">
-                        <span>{{ scope.row.price*scope.row.quantity }}</span>
+                        <span>{{ scope.row.price * scope.row.quantity }}</span>
                     </template>
                 </el-table-column>
                 <el-table-column width="70" label="">
@@ -38,15 +39,15 @@
 </template>
 
 <script>
-import { ElButton, ElImage, ElInput, ElMenu, ElCard, ElDialog } from 'element-plus';
+import { ElButton, ElImage, ElTable, ElTableColumn, ElIcon } from 'element-plus';
 import axios from 'axios';
 import { mapGetters, mapActions } from 'vuex';
-import { columns } from 'element-plus/es/components/table-v2/src/common';
+
 
 
 export default {
     components: {
-        ElImage
+        ElImage, ElTable, ElTableColumn, ElButton, ElIcon
     },
     data() {
         return {
@@ -59,7 +60,7 @@ export default {
     computed: {
         ...mapGetters([
             'cartSpares',
-            
+
         ])
     },
     methods: {
@@ -83,7 +84,7 @@ export default {
                 .finally(function () {
 
                 });
-                
+
         },
         deleteSpare(spareIndex, spareId) {
             if (spareIndex > -1) {
@@ -105,10 +106,29 @@ export default {
             const needSpare = this.cartSparesItems.find(item => item.id === id);
             needSpare.quantity++;
         },
-       
+        getSum(param) {
+            const { columns, data } = param;
+            const sums = [];
+            columns.forEach((column, index) => {
+                if (index === 0) {
+                    sums[index] = 'Всего'
+                    return
+                }
+                const values = Array.from(data).map(item => item.price * item.quantity)
+                sums[4] = `${values.reduce((prev, curr) => {
+                    const value = Number(curr)
+                    if (!Number.isNaN(value)) {
+                        return prev + curr
+                    } else {
+                        return prev
+                    }
+                }, 0)}`
+            })
+            return sums
+        },
     },
     mounted() {
-        if(localStorage.length > 0) {
+        if (localStorage.length > 0) {
             this.$store.state.cartSpares = JSON.parse(localStorage.getItem('cartId'));
         }
         this.renderCart();

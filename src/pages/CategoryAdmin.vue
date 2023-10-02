@@ -35,7 +35,7 @@ import { ElTabs, ElTabPane, ElInput, ElSelect, ElButton, ElDialog, ElDivider, El
 import axios from 'axios';
 
 export default {
-    // name: 'categoryAdmin',
+    name: 'CategoryAdmin',
     components: {
         ElTabs, ElTabPane, ElInput, ElSelect, ElButton, ElDialog, ElDivider, ElDropdown, ElDropdownItem, ElTable, ElTableColumn
     },

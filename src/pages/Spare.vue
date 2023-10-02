@@ -8,7 +8,7 @@
                 <div class="bottom">
                     <el-button @click="buySpare(spare.id)" class="button" text-color="white" color="#fea712">Купить</el-button>
                 </div>
-                <span><strong>Код:</strong>{{spare.code }}</span>
+                <span><strong>Код:</strong>{{ spare.code }}</span>
             </div>
         </el-card>
     </div>

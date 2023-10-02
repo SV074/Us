@@ -276,8 +276,10 @@ button:focus-visible {
 
 .list-categories {
   display: flex;
-   
+  margin-left: 50px;
   list-style: none;
+  flex-direction: column;
+  width: 100%;
 }
 
 .category {
@@ -329,4 +331,78 @@ button:focus-visible {
   font-weight: 700;
   font-size: 1.1em;
   color: #333;
+}
+
+.admin-menu {
+  display: flex;
+}
+
+.demo-tabs {
+  margin: 0 auto;
+}
+
+.el-tabs__item {
+  font-size: large !important;
+  font-weight: 700 !important;
+}
+
+.contacts-managers {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+
+.contacts-select {
+  padding: 10px;
+}
+
+.input-info {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.input-info-dialog {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+}
+
+.create-contact-manager {
+  width: 100%;
+}
+
+.save-contact-manager {
+  width: 50%;
+}
+
+.input-name,
+.input-phone {
+  margin: 15px;
+}
+
+.input-dialog {
+  margin: 15px;
+ }
+
+.buttons-edit-delete-admin {
+  display: flex;
+
+}
+
+.input-add-spare-admin {
+  margin: 10px;
+  width:60%;
+}
+
+.form-input {
+  box-sizing: border-box;
+  margin: 5px;
+  width: 75%;
+}
+
+.modal-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
